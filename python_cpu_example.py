@@ -46,7 +46,7 @@ n_cores = 16
 
 results = Parallel(n_jobs=n_cores)(delayed(metropolis_hastings)(num_iters=n_iterations) for i in range(n_cores))
 
-plotting_dir = '~/Documents/ClusterTesting/Plots/'
+plotting_dir = './ClusterTesting/'
 
 for i in range(n_cores):
     data = results[i]
