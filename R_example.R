@@ -42,7 +42,7 @@ metropolis_hastings <- function(n_iterations,x_init=0){
   return(samples)
 }
 
-iters_per_core <- 1000000
+iters_per_core <- 10000
 max_cores <- parallel::detectCores()
 num_cores <- min(16, max_cores)
 doParallel::registerDoParallel(cores=num_cores)
@@ -53,7 +53,7 @@ parallel_chains <- foreach(i = 1 : num_cores)%dopar%{
 
 doParallel::stopImplicitCluster()
 
-plotting_dir <- '~/Documents/ClusterTesting/Plots/'
+plotting_dir <- ''
 
 for (i in 1:num_cores){
   # create histogram of draws, trace plot etc.
